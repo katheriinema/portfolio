@@ -1,12 +1,17 @@
 <!-- tabs/resume.html -->
 <div class="resume-detail">
+  <!-- Back button to go home or to Search tab -->
+  <button class="back-link" onclick="goHome()">
+    ← Back
+  </button>
 
-  <h1 class="detail-title">Most Recently Updated Resume</h1>
+  <!-- Page title -->
+  <h1 class="detail-title">Resume</h1>
 
   <!-- Embed PDF viewer -->
   <div class="resume-viewer">
     <iframe
-      src="../assets/KatherineMa_Resume.pdf#toolbar=0"
+      src="assets/KatherineMa_Resume.pdf#toolbar=0"
       width="100%"
       height="600"
     ></iframe>
@@ -14,7 +19,7 @@
 
   <!-- Download button -->
   <div class="resume-download">
-    <a href="../assets/KatherineMa_Resume.pdf" download class="button">
+    <a href="assets/KatherineMa_Resume.pdf" download class="button">
       📄 Download PDF
     </a>
   </div>
