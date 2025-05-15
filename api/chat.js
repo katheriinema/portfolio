@@ -8,19 +8,18 @@ export default async function handler(req, res) {
 
   const { messages } = req.body;
   if (!Array.isArray(messages)) {
-    return res.status(400).json({ error: "Request body must have a messages array" });
+    return res.status(400).json({ error: "messages must be an array" });
   }
 
   try {
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-    const completion = await openai.chat.completions.create({
+    const result = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages
     });
-    // return just the assistant’s text
-    return res.status(200).json({ content: completion.choices[0].message.content });
+    return res.status(200).json({ content: result.choices[0].message.content });
   } catch (err) {
-    console.error("OpenAI error:", err);
+    console.error("❌ OpenAI error:", err);
     return res.status(500).json({ error: err.message });
   }
 }
