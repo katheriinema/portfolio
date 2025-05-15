@@ -1,26 +1,26 @@
 // api/chat.js
-import { config }        from "dotenv";
-import { OpenAI }        from "openai";
-
-config(); // load process.env.OPENAI_API_KEY
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+import { OpenAI } from "openai";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({ error: "Only POST allowed" });
   }
+
+  const { messages } = req.body;
+  if (!Array.isArray(messages)) {
+    return res.status(400).json({ error: "Request body must have a messages array" });
+  }
+
   try {
-    const { messages } = req.body;
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const completion = await openai.chat.completions.create({
-      model:    "gpt-3.5-turbo",
+      model: "gpt-3.5-turbo",
       messages
     });
-    res.status(200).json(completion.choices[0].message);
+    // return just the assistant’s text
+    return res.status(200).json({ content: completion.choices[0].message.content });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: err.message });
+    console.error("OpenAI error:", err);
+    return res.status(500).json({ error: err.message });
   }
 }

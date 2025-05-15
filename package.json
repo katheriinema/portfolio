@@ -4,13 +4,11 @@
   "main": "server.js",
   "scripts": {
     "start": "live-server --port=3000",
-    "api":   "node server.js"
+    "api": "node server.js"
   },
   "dependencies": {
-    "cors":    "^2.8.5",
-    "dotenv":  "^16.5.0",
-    "express": "^5.1.0",
-    "openai":  "^4.98.0"
+    "dotenv": "^16.5.0",
+    "openai": "^4.98.0"
   },
   "devDependencies": {
     "live-server": "^1.2.2"
