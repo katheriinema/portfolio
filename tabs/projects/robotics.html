@@ -1,0 +1,61 @@
+<div class="project-detail">
+  <!-- Back button -->
+  <button class="back-link" onclick="openTab('projects')">
+    ← Back to Projects
+  </button>
+
+  <!-- Title -->
+  <h1 class="detail-title">SPEED: Robotics Research</h1>
+
+  <!-- Links -->
+  <div class="project-links">
+    <a href="https://github.com/katheriinema/CERD_Model" target="_blank">
+      💻 View Source on GitHub
+    </a>
+  </div>
+
+  <!-- TECH STACK SECTION -->
+  <div class="tech-stack">
+    <h2>Tech Stack 🚀</h2>
+    <ul class="stack-list">
+      <li>
+        <strong>State-of-the-Art Models & Vision</strong>
+        <ul>
+          <li>GroundedSAM2: advanced object grounding and segmentation</li>
+          <li>HaMeR (Recon-Hand): 3D hand reconstruction from RGB input</li>
+          <li>EgoMimic: egocentric imitation learning framework</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Hardware & SDKs</strong>
+        <ul>
+          <li>ZED SDK: stereo-camera depth mapping and tracking</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Data & Storage</strong>  
+        <ul>
+          <li>Python: preprocessing, simulation orchestration, and analysis</li>
+          <li>HDF5 &amp; CSV: standardized, self-describing containers for sensor logs</li>
+        </ul>
+    </ul>
+  </div>
+
+<div class="detail-gallery">
+  <img src="../../assets/projects/grasp_state.png" alt="CERD Data Flow">
+  <img
+    src="../../assets/projects/smoothedtraj.png"
+    alt="Smoothed Trajectory"
+    class="detail-img-large"
+  >
+</div>
+
+  <!-- DESCRIPTION -->
+  <h2>Description</h2>
+  <p>
+    Imitation learning typically demands hundreds of hours of teleoperated demonstrations, creating a major bottleneck for large‐scale robotics training. To solve this, we built SPEED (Scalable Pipeline for Efficient Egocentric Data collection): a unified platform that automatically transforms raw first-person video into policy-ready datasets. Users simply upload egocentric footage, and SPEED’s modular pipeline—powered by state-of-the-art segmentation, hand-tracking, and keyframe filtering—returns cleaned, annotated HDF5/JSON files suitable for any IL framework.
+  </p>
+  <p>
+    SPEED is built to streamline robotics research, making it easier to share and replicate experiments. It works towards a general foundation model for robotics, which can be fine-tuned for specific tasks. By using SPEED, researchers can focus on their experiments without worrying about data management.
+  </p>
+</div>

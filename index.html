@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KATHERINE Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- TAB BAR -->
+  <div class="tab-bar" id="tabBar">
+    <div class="tab active" data-key="search" onclick="goHome()">Search</div>
+    <div class="add-tab" onclick="goHome()">＋</div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <div class="main" id="home">
+    <!-- LOGO AT TOP -->
+    <h1 class="logo">
+      <span class="red">K</span>
+      <span class="yellow">A</span>
+      <span class="green">T</span>
+      <span class="blue">H</span>
+      <span class="red">E</span>
+      <span class="blue">R</span>
+      <span class="yellow">I</span>
+      <span class="green">N</span>
+      <span class="red">E</span>
+      &nbsp;
+      <span class="yellow">M</span>
+      <span class="blue">A</span>
+    </h1>
+
+    <div class="subtitle">
+      AI Enthusiast, Product Developer, and Computer Engineer
+    </div>
+
+    <!-- CHAT PANEL (hidden by default) -->
+    <div id="chatPanel" class="chat-panel hidden">
+      <span id="chatClose" class="chat-close">×</span>
+      <div id="chatLog" class="chat-log"></div>
+    </div>
+
+    <!-- SINGLE SEARCH BAR -->
+    <input
+      id="searchBox"
+      type="text"
+      placeholder="Ask me anything about Katherine..."
+      onkeydown="handleKey(event)"
+    />
+
+    <!-- QUICK LINKS -->
+    <div class="links">
+      <a href="#" onclick="event.preventDefault(); openTab('about')">About Me</a>
+      <a href="#" onclick="event.preventDefault(); openTab('projects')">Projects</a>
+      <a href="#" onclick="event.preventDefault(); openTab('resume')">Resume</a>
+      <a href="#" onclick="event.preventDefault(); openTab('contact')">Contact</a>
+    </div>
+  </div>
+
+  <!-- DYNAMIC TAB CONTENT -->
+  <div class="content" id="tab-content" style="display:none;"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+/* reset & bg */
+body {
+  margin:0;
+  padding-top:40px;
+  font-family:Arial, sans-serif;
+  background:#f8f9fa;
+  text-align:center;
+}
+
+/* logo text */
+h1 {
+  font-size:62px;
+  letter-spacing: -8px;    /* pulls the letters in */
+  margin-bottom:5px;
+}
+
+.subtitle {
+  max-width: 600px;
+  margin: 0 auto 30px;  /* centers the block, with space below */
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  font-weight: 500;
+}
+
+.red   { color:#ea4335 }
+.yellow{ color:#fbbc05 }
+.green { color:#34a853 }
+.blue  { color:#4285f4 }
+
+/* SEARCH BOX */
+input[type="text"] {
+  width:50%;
+  padding:10px 16px;
+  font-size:16px;
+  border-radius:24px;
+  border:1px solid #ccc;
+  box-shadow:0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* LINKS UNDER SEARCH */
+.links { margin-top:30px }
+.links a {
+  margin:0 12px;
+  font-size:16px;
+  color:#1a0dab;
+  text-decoration:none;
+}
+.links a:hover { text-decoration:underline }
+
+/* TAB BAR (Chrome-style, inline, left-aligned) */
+.tab-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #ccc;
+  padding: 0 8px;
+  overflow-x: auto;       /* don’t wrap to next line */
+  white-space: nowrap;    /* keep tabs on one line */
+  z-index: 1000;
+}
+
+/* EACH TAB */
+.tab {
+  height: 32px;
+  margin-right: 2px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tab.active {
+  background-color: #fff;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.tab .tab-close {
+  margin-left: 8px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+}
+
+.tab .tab-close:hover {
+  color: #d00;
+}
+
+/* THE “＋” BUTTON AS A TAB */
+.add-tab {
+  height: 32px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  margin-right: 2px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* CONTENT BELOW TABS */
+.content {
+  margin-top:80px;
+  padding:30px;
+  background:white;
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.main { margin-top:60px }
+
+.hidden { display: none; }
+
+/* Chat panel container */
+.chat-panel {
+  background: #ffffff;         /* white background */
+  border: 1px solid #ccc;      /* neutral border */
+  border-radius: 8px;
+  padding: 12px;
+  max-width: 600px;
+  margin: 16px auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Chat log becomes a flex column */
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Base bubble style */
+.chat-log .message {
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+/* Assistant on the left */
+.chat-log .assistant {
+  align-self: flex-start;
+  background: #f1f1f1;
+  color: #333;
+}
+
+/* User on the right */
+.chat-log .user {
+  align-self: flex-end;
+  background: #e1f5fe;
+  color: #111;
+}
+
+/* About-Me two-column layout */
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+/* Left column */
+.about-left {
+  flex: 0 0 330px;
+  text-align: left;
+}
+
+/* Profile photo */
+.about-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Bullets under photo */
+.about-bullets {
+  margin-top: 12px;
+  padding-left: 20px;
+  list-style: disc inside;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Right column paragraph */
+.about-right {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 600px) {
+  .about-container {
+    flex-direction: column;
+  }
+}
+
+.dog-photos {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  gap: 12px;
+  margin: 16px 0;           /* vertical spacing */
+}
+
+.dog-photos img {
+  height: 130px;            /* adjust this value as needed */
+  width: auto;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  object-fit: cover;
+}
+
+/* Projects grid: responsive cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+  padding: 0 16px;
+}
+
+/* Individual project card */
+.project-card {
+  text-align: center;
+}
+
+/* Clickable icon/image */
+.project-card img {
+  width: 250px;            /* size of your “icon” */
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  transition: transform 0.2s;
+}
+.project-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Project title */
+.project-card h3 {
+  margin: 12px 0 6px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Brief description */
+.project-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.3;
+}
+
+/* Project detail page title */
+.detail-title {
+  font-size: 48px;          /* larger text */
+  letter-spacing: 0.2px;    /* subtle spacing */
+  margin: 24px 0 16px;      /* breathing room */
+  text-align: center;         /* or center */
+  color: #333;              /* dark for contrast */
+}
+
+/* Project detail page: GitHub link */
+.project-links {
+  margin: 16px 0;
+  text-align: center;    /* aligns under the video */
+}
+
+.project-links a {
+  display: inline-block;
+  color: #4285f4;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 6px 10px;
+  border: 1px solid #4285f4;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.project-links a:hover {
+  background: #4285f4;
+  color: #fff;
+}
+
+/* Back link aligned with page content */
+.back-link {
+  float: left;               /* pin to the left */
+  margin: 16px 0 16px 24px;   /* added 24px left margin */
+  text-decoration: none;
+  color: #4285f4;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border: 1px solid #4285f4;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.detail-title {
+  clear: both;
+}
+
+.back-link:hover {
+  background: #4285f4;
+  color: #fff;
+}
+
+/* Detail page image styling */
+.detail-image {
+  width: 100%;
+  max-width: 600px;
+  margin: 16px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 2×2 gallery under project-links */
+.detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 12px;
+  justify-content: center;  /* center the two-column grid */
+  margin: 16px 0;
+}
+
+.detail-gallery img {
+  width: 350px;    /* shrink this to taste (e.g. 120px, 100px, etc.) */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Tech Stack section */
+.tech-stack {
+  margin: 24px 0;
+  text-align: left;
+}
+
+.tech-stack h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.stack-section {
+  margin-bottom: 16px;
+}
+
+.stack-section h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.stack-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.stack-section li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #444;
+}
+
+.description {
+  font-size: 15px;
+  color: #333;
+  margin: 24px 0;
+  text-align: left;
+}
+
+/* Smaller detail image for HabitHound (or similar) */
+.detail-img-small {
+  display: block;
+  margin: 16px auto; /* center under its container */
+  width: 700px;      /* shrink to taste */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Override the gallery img rule for our large shot */
+.detail-gallery img.detail-img-large {
+  width: auto;       /* let it size by height */
+  height: 224px;     /* your desired new height */
+  object-fit: cover; /* keep its aspect ratio */
+}
+
+/* Contact page styling */
+.contact-detail {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.contact-detail h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.contact-detail p {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: #555;
+}
+
+/* Cards container */
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+/* Base card styling */
+.contact-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 260px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* add transition */
+}
+
+/* Hover state: deeper shadow + slight lift */
+.contact-card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
+
+/* Header row: icon + label */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icon images */
+.contact-icon-image {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+/* Card title */
+.contact-card h3 {
+  font-size: 18px;
+  margin: 0;
+  color: #222;
+}
+
+/* Link underneath */
+.contact-card a {
+  font-size: 14px;
+  color: #4285f4;
+  text-decoration: none;
+  word-break: break-all;   /* wrap long URLs */
+  margin-top: 4px;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Resume page styling */
+.resume-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.resume-viewer {
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.resume-viewer iframe {
+  border: none;
+  border-radius: 4px;
+}
+
+/* Download button */
+.resume-download .button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #4285f4;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.resume-download .button:hover {
+  background: #3367d6;
+}
