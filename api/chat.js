@@ -9,14 +9,25 @@ console.log(
 );
 
 export default async function handler(req, res) {
+  // ─── CORS SETUP ─────────────────────────────────────────
+  // allow your Pages site to talk to this endpoint:
+  res.setHeader("Access-Control-Allow-Origin", "https://katherinema.my");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // handle preflight
+  if (req.method === "OPTIONS") {
+    return res.status(204).end();
+  }
+
+  // only allow POST after that
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Only POST allowed" });
   }
 
-  // (Optionally, you can also double-check inside the handler)
   console.log(
     "Inside handler, key:",
-    process.env.OPENAI_API_KEY?.startsWith("sk-") ? "✅ loaded" : "❌ missing"
+    rawKey && rawKey.startsWith("sk-") ? "✅ loaded" : "❌ missing"
   );
 
   const { messages } = req.body;
