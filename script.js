@@ -156,7 +156,7 @@ async function doSearch(query) {
   appendToChat("user", query);
 
   try {
-    const res = await fetch("/api/chat", {
+    const res = await fetch("https://api.katherinema.my/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
